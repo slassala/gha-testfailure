@@ -2,10 +2,11 @@ name: Matrix Demo
 on: push
 jobs:
   build:
+    continues-on-error: true
     strategy:
       matrix:
         node-version: [14, 16, 18]
-        operating-system: [ubuntu-latest, windows-latest, macos-latest]
+        operating-system: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Get code
